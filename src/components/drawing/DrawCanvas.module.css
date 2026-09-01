@@ -1,0 +1,14 @@
+.canvas {
+  display: block;
+  /* カード枠 (padding+border 約12px) を足しても 360px 幅に収まるサイズ */
+  width: min(86vw, 58vh, 470px);
+  height: min(86vw, 58vh, 470px);
+  border-radius: 22px;
+  background: #0a0e2a;
+  /* スクロールやピンチに奪われず、指の動きをすべて描画に使う */
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: crosshair;
+}

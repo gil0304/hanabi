@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+next-env.d.ts
+
+# local data (ローカルファイル保存モードの永続化先)
+.data/
+
+# env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+.next-prod/
+
+# Local agent runtime state
+.claude/scheduled_tasks.lock

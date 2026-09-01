@@ -1,0 +1,402 @@
+/* 管理画面: 濃紺ベースのコンパクトなコンソール */
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+/* ---- ヘッダー ---- */
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 2px 14px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--white);
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.navLink {
+  font-size: 12px;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition:
+    border-color 0.15s,
+    background 0.15s;
+}
+
+.navLink:hover {
+  border-color: var(--gold);
+  background: rgba(255, 209, 102, 0.08);
+}
+
+/* ---- セクション共通 ---- */
+
+.section {
+  background: var(--navy);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-top: 14px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+
+.count {
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.saveNote {
+  font-size: 11px;
+  color: var(--gold);
+  min-height: 1em;
+}
+
+.saveNoteError {
+  color: var(--red-bright);
+}
+
+.errorNote {
+  font-size: 12px;
+  color: var(--red-bright);
+  padding: 6px 0;
+}
+
+.loading,
+.empty {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  padding: 26px 0;
+}
+
+/* ---- 設定行 ---- */
+
+.rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 8.5em 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowLabel {
+  font-size: 13px;
+  color: var(--white);
+}
+
+.rowValue {
+  font-size: 13px;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.2em;
+  text-align: right;
+}
+
+@media (max-width: 520px) {
+  .row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .rowLabel {
+    grid-column: 1 / -1;
+    padding-bottom: 2px;
+  }
+}
+
+.range {
+  width: 100%;
+  height: 28px;
+  accent-color: var(--gold);
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ---- セグメント ---- */
+
+.segmented {
+  display: inline-flex;
+  gap: 2px;
+  background: var(--navy-deep);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 3px;
+  justify-self: start;
+}
+
+.segBtn {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.segBtnActive {
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-weight: 700;
+}
+
+/* ---- トグル ---- */
+
+.toggle {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--navy-deep);
+  border: 1px solid var(--line);
+  justify-self: start;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.toggleOn {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.toggleKnob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.toggleOn .toggleKnob {
+  transform: translateX(20px);
+  background: var(--navy-deep);
+}
+
+/* ---- 投稿一覧 ---- */
+
+.ghostBtn {
+  font-size: 12px;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 12px;
+  transition: border-color 0.15s;
+}
+
+.ghostBtn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: var(--navy-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.thumb {
+  display: block;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--navy-deep);
+}
+
+.cardBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardMsg {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--white);
+  overflow-wrap: anywhere;
+}
+
+.cardMsgEmpty {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  letter-spacing: 0.06em;
+}
+
+.badgeApproved {
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-weight: 700;
+}
+
+.badgeHidden {
+  border-color: var(--line);
+  color: var(--muted);
+}
+
+.badgePending {
+  border-color: rgba(232, 64, 79, 0.6);
+  color: var(--red-bright);
+}
+
+.cardBtn {
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--white);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.cardBtn:hover {
+  border-color: var(--white);
+}
+
+.cardBtnAccent {
+  border-color: rgba(255, 209, 102, 0.5);
+  color: var(--gold);
+}
+
+.cardBtnAccent:hover {
+  border-color: var(--gold);
+}
+
+/* ---- 全削除 ---- */
+
+.dangerSection {
+  border-color: rgba(232, 64, 79, 0.35);
+}
+
+.dangerBtn {
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid var(--red);
+  color: var(--red-bright);
+  transition: background 0.15s;
+}
+
+.dangerBtn:hover {
+  background: rgba(232, 64, 79, 0.1);
+}
+
+.confirmBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  background: rgba(232, 64, 79, 0.08);
+  border: 1px solid rgba(232, 64, 79, 0.4);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.confirmText {
+  font-size: 13px;
+  color: var(--white);
+  margin-right: auto;
+}
+
+.confirmDeleteBtn {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--red);
+  color: var(--white);
+}
+
+.confirmDeleteBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.cancelBtn {
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.cancelBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
