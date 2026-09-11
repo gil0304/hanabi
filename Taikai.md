@@ -8,6 +8,6 @@
 
 ## 公開メモ
 
+- 公開URL: https://digital-hanabi.lolipop-now.app
 - 種別: Next.jsのWebアプリ
 - 複数端末のリアルタイム共有には永続ストレージ設定が必要です
-
