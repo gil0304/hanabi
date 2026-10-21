@@ -17,3 +17,6 @@ next-env.d.ts
 
 # Local agent runtime state
 .claude/scheduled_tasks.lock
+
+pr-video/
+social-posts/
